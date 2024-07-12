@@ -1,0 +1,81 @@
+.marqueeimg > img {
+  width: 50%;
+  height: 400px;
+  border-radius: 10px;
+  opacity: 20%;
+}
+
+.banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  height: 400px;
+}
+
+.movies > .img {
+  width: 140px;
+  height: 210px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: 0.2s ease-in-out;
+  border-radius: 8px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  background-color: black;
+}
+
+.movies > .img:hover {
+  transform: scale(1.1);
+  border-radius: 15px;
+  transition: 0.2s ease-in-out;
+}
+.movies > .img > .overlay {
+  color: white;
+  text-align: center;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+  font-size: small;
+  font-weight: 500;
+  
+}
+.banner > h1 {
+  font-size: 220px;
+  font-weight: 1000;
+  background-image: url("https://th.bing.com/th/id/OIP.5MVOy0VURMVZ2d_aD5be3AHaEK?w=277&h=180&c=7&r=0&o=5&dpr=1.4&pid=1.7");
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .marqueeimg > img {
+    width: 60%;
+    height: 300px;
+    border-radius: 10px;
+    opacity: 20%;
+  }
+
+  .banner {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    height: 300px;
+  }
+  .banner > h1 {
+    font-size: 100px;
+    font-weight: 1000;
+    background-image: url("https://th.bing.com/th/id/OIP.5MVOy0VURMVZ2d_aD5be3AHaEK?w=277&h=180&c=7&r=0&o=5&dpr=1.4&pid=1.7");
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    z-index: 1;
+    text-transform:lowercase;
+
+  }
+}
