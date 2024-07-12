@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <div className="Navbar fixed-top bg-light border-bottom shadow rounded py-1 ps-3 d-flex gap-4 align-items-center ">
       <img
-        src="images/giphy.gif"
+        src="https://media0.giphy.com/media/U8FvqfxkzxoSpokGaW/giphy.gif"
         className="logo rounded-circle"
         width={50}
         alt=""
