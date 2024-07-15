@@ -51,7 +51,7 @@
   z-index: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px ) {
   .marqueeimg > img {
     width: 60%;
     height: 300px;

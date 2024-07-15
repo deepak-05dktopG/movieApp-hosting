@@ -2,6 +2,7 @@ import Navbar from "./components/navbar";
 import Home from "./components/Home";
 import Banner from "./components/Banner";
 import Watchlist from "./components/Watchlist";
+import Pagination from "./components/pagination";
 import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
