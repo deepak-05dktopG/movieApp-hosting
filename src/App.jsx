@@ -27,7 +27,6 @@ function App() {
               element={
                 <>
                   <Watchlist />
-                  <Banner />
                 </>
               }
             />
