@@ -6,8 +6,24 @@ import Pagination from "./components/pagination";
 import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+  let [watchlist,setwatchlist]=useState([])
+
+  let handlewatchlist=(movieobj)=>{
+    let newwatchlist=[...watchlist,movieobj]
+    setwatchlist(newwatchlist)
+    console.log(newwatchlist)
+  }
+
+  let handleremove=(movieobj)=>{
+    let filteredwatchlist=watchlist.filter((movie)=>{
+      return movie.id!==movieobj.id
+  })
+  setwatchlist(filteredwatchlist)
+  }
+
   return (
     <>
       <div className="mt-5 pt-2">
@@ -19,7 +35,7 @@ function App() {
               element={
                 <>
                   <Banner />
-                  <Home />
+                  <Home watchlist={watchlist} handlewatchlist={handlewatchlist} handleremove={handleremove} />
                 </>
               }
             />

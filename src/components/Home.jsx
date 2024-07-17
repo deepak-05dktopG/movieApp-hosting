@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Moviecard from "./Moviecard";
 import Pagination from "./pagination";
 
-function Home() {
+function Home({handlewatchlist,handleremove,watchlist}) {
   const [movies, setMovies] = useState([]);
   const [pageno, pagenumber] = useState(1);
 
@@ -38,9 +38,13 @@ function Home() {
       <div className="d-flex flex-wrap gap-2 justify-content-around">
         {movies.map((moviesobj) => {
           return (
-            <Moviecard
+            <Moviecard key={moviesobj.id}
               poster_path1={moviesobj.poster_path}
               moviename={moviesobj.original_title}
+              handlewatchlist={handlewatchlist}
+              movieobj={moviesobj}
+              handleremove={handleremove}
+              watchlist={watchlist}
             />
           );
         })}
