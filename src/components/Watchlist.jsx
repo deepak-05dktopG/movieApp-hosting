@@ -1,62 +1,160 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useEffect } from "react";
-import Moviecard from "./Moviecard";
+import React, { useEffect, useState } from "react";
+import genreids from "./genre";
+function Watchlist({ watchlist, setwatchlist, handleremove }) {
+  const [search, setsearch] = useState("");
+  const [genrelist, setgenrelist] = useState(["All Genres"]);
+  const [currgenre, setcurrgenre] = useState("All Genres");
 
-function Watchlist() {
+  let handlesearch = (e) => {
+    setsearch(e.target.value);
+  };
+  let handlefilter = (genre) => {
+    setcurrgenre(genre);
+  };
+
+  let sortincreasing = () => {
+    let accending = watchlist.sort((movieA, movieB) => {
+      return movieA.vote_average - movieB.vote_average;
+    });
+    setwatchlist([...accending]);
+  };
+  let sortdecreasing = () => {
+    let decending = watchlist.sort((movieA, movieB) => {
+      return movieB.vote_average - movieA.vote_average;
+    });
+    setwatchlist([...decending]);
+  };
+
+  useEffect(() => {
+    let temp = watchlist.map((movieobj) => {
+      return genreids[movieobj.genre_ids[0]];
+    });
+    temp = new Set(temp);
+    setgenrelist(["All Genres", ...temp]);
+    console.log(temp);
+  }, [watchlist]);
+
   return (
     <>
-      <div className="container mt-4 d-flex justify-content-center gap-4 ">
-        <div className="btn col-2 btn-primary text-white btn-outline-success">
-          Action
+      <div className=" w-100 ">
+        <div data-aos="fade-up"
+              data-aos-duration="1000" className="text-center overflow-hidden   mt-4  align-items-center ">
+          {genrelist.map((genre) => {
+            return (
+              <div data-aos="flip-left"
+              data-aos-duration="1000"
+                onClick={() => handlefilter(genre)}
+                className={
+                  currgenre == genre
+                    ? "allgenres btn btn-success text-white"
+                    : " btn   btn-warning "
+                }
+              >
+                {genre}
+              </div>
+            );
+          })}
         </div>
-        <div className="btn col-2 btn-primary text-white btn-outline-success">
-          Comedy
-        </div>
-        <div className="btn col-2 btn-primary text-white btn-outline-success">
-          Thriller
+
+        <div data-aos="fade-right" data-aos-delay='300'
+              data-aos-duration="1000" className=" pt-3 d-flex justify-content-center">
+          <input
+            onChange={handlesearch}
+            value={search}
+            type="text"
+            placeholder="Search Movies"
+            style={{ width: "60%" }}
+            className="form-control form-control-md  rounded border border-secondary"
+          />
         </div>
       </div>
-
-      <div className=" pt-3 d-flex justify-content-center">
-        <input
-          type="text"
-          placeholder="Search Movies"
-          className="form-control form-control-md w-25  rounded border border-secondary"
-        />
-      </div>
-
-      <div className="mt-3 overflow-scroll">
-        <table className=" w-100 text-center  text-secondary">
-          <thead className=" border-top-0 border-start-0 border-end-0 border-2">
+      <div className="mt-3 ">
+        <table className=" container  text-center ">
+          <thead className="  ">
             <tr className="">
-              <th className="col-1"></th>
-              <th className="col-4 ">Name</th>
-              <th className="col-2 ">Ratings</th>
-              <th className="col-3 ">Popularity</th>
-              <th className="col-3 ">Genre</th>
+              <th className=" col-1"></th>
+              <th data-aos="zoom-in"
+              data-aos-duration="1000"
+              data-aos-delay='200' className=" col-4">Name</th>
+              <th className="  d-flex  justify-content-center align-items-center gap-1">
+                <div data-aos="fade-down"
+              data-aos-duration="1000"
+              data-aos-delay='400' className="text-success " onClick={sortdecreasing}>
+                  <i class="fa-solid fa-arrow-down"></i>
+                </div>
+                <div data-aos="zoom-in"
+              data-aos-duration="1000"
+              data-aos-delay='200' className="">Rating</div>
+                <div data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-delay='400' className="text-danger " onClick={sortincreasing}>
+                  <i class="fa-solid fa-arrow-up"></i>
+                </div>
+              </th>
+              <th data-aos="zoom-in"
+              data-aos-duration="1000"
+              data-aos-delay='200' className=" col-4 border-dark">Genre</th>
             </tr>
           </thead>
+
           <tbody className="">
-            <tr className="border">
-              <td className="">
-                <img
-                  className="py-1"
-                  style={{ width: "80px", height: "90px" }}
-                  src={
-                    "https://www.bing.com/th?id=OIP.WpjIjGQtAMaGtKxgDDo-XAHaKC&w=146&h=199&c=8&rs=1&qlt=90&o=6&dpr=1.4&pid=3.1&rm=2"
-                  }
-                  alt=""
-                />
-              </td>
-              <td className="">bahumbali</td>
-              <td className="">6.9</td>
-              <td className="">popularity</td>
-              <td className="">action</td>
-              <td className=" ">
-                <button className="btn btn-danger me-2">Delete</button>
-              </td>
-            </tr>
+            {watchlist
+              .filter((movieobj) => {
+                if (currgenre == "All Genres") {
+                  return true;
+                } else {
+                  return genreids[movieobj.genre_ids[0]] == currgenre;
+                }
+              })
+              .filter((movieobj) => {
+                return movieobj.original_title
+                  .toLowerCase()
+                  .includes(search.toLocaleLowerCase());
+              })
+              .map((movieobj) => {
+                return (
+                  <tr className="border">
+                    <td data-aos="flip-left"
+              data-aos-duration="1000"
+              data-aos-delay='200'
+              data-aos-offset='0' className="">
+                      <img
+                        className="py-1"
+                        style={{ width: "80px", height: "90px" }}
+                        src={`https://image.tmdb.org/t/p/original/${movieobj.poster_path}`}
+                        alt=""
+                      />
+                    </td>
+                    <td data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-delay='200'
+              data-aos-offset='0' className="moviename  ">{movieobj.original_title}</td>
+                    <td data-aos="zoom-out"
+              data-aos-duration="1000"
+              data-aos-delay='800'
+              data-aos-offset='0' className="movierating fw-bold   text-warning">
+                      {movieobj.vote_average}
+                    </td>
+                    <td data-aos="fade-down"
+              data-aos-duration="1000"
+              data-aos-delay='800'
+              data-aos-offset='0' className="moviegenre    text-dark">
+                      {genreids[movieobj.genre_ids[0]]}
+                    </td>
+                    <td data-aos="zoom-in"
+              data-aos-duration="1000"
+              data-aos-delay='1200'
+              data-aos-offset='0'
+                      onClick={() => handleremove(movieobj)}
+                      className="deletebtn1  "
+                    >
+                      <div  className="deletebtn fw-bold  rounded text-danger">
+                        Remove
+                      </div>{" "}
+                    </td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </div>

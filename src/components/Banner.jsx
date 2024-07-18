@@ -5,27 +5,31 @@ function Banner() {
   return (
     <>
       <div className="banner d-flex align-items-center justify-content-center">
-        <h1 className="bannername position-absolute text-center d-flex align-items-center justify-content-center">
+        <h1 data-aos="zoom-in"
+        data-aos-duration="1000"
+        data-aos-delay='1000' className="bannername position-absolute text-center d-flex align-items-center justify-content-center">
           <div className="">Movie</div>
           <div>Time</div>
         </h1>
 
         <div
+        data-aos="zoom-in"
+        data-aos-duration="1000"
           id="carouselExampleSlidesOnly"
-          className="carousel slide  carousel-fade"
+          className="carousel slide  carousel-fade "
           data-bs-ride="carousel"
         >
-          <div className="carousel-inner">
+          <div className="carousel-inner"> 
             <div className="carousel-item active">
               <img
-                src="https://wallpaperaccess.com/full/861773.jpg"
+                src="https://wallpapercave.com/wp/wp2904203.jpg"
                 className="img-fluid"
                 alt="..."
               />
             </div>
-            <div className="carousel-item">
+            <div className="carousel-item ">
               <img
-                src="https://wallpapercave.com/wp/wp2904203.jpg"
+                src="https://wallpaperaccess.com/full/861773.jpg"
                 className="img-fluid"
                 alt="..."
               />

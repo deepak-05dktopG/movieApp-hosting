@@ -1,4 +1,9 @@
-.carousel{
+.Navbar{
+  background: rgb(16,16,16);
+background: linear-gradient(202deg, rgba(16,16,16,1) 25%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
+
+}
+.carousel {
   width: 100%;
   z-index: 0;
   opacity: 90%;
@@ -12,12 +17,10 @@
 
 .banner {
   background-repeat: no-repeat;
-  background-color: rgb(0, 0, 0);
   border-radius: 5px;
   height: 500px;
   overflow: hidden;
 }
-
 
 .movies > .img {
   width: 140px;
@@ -46,7 +49,6 @@
   font-weight: 500;
 }
 .banner > h1 {
-
   font-family: "Spicy Rice", serif;
   font-weight: 400;
   font-style: normal;
@@ -55,15 +57,57 @@
   background-size: contain;
   -webkit-background-clip: text;
   background-clip: text;
-  color:transparent;
+  color: transparent;
   background-image: url("https://th.bing.com/th/id/R.2d463f54bf6c4896262523ccf5cc37aa?rik=D93XUaqP1aWPcg&riu=http%3a%2f%2fhdqwalls.com%2fdownload%2f1%2fstar-wars-poster-4k-af.jpg&ehk=B9%2bYUiycUOPfxKNEplH6vJ%2bY6QWIUK6qTAuGRWWWttA%3d&risl=1&pid=ImgRaw&r=0");
   -webkit-text-stroke-width: 7px;
   -webkit-text-stroke-color: rgb(255, 255, 255);
   z-index: 1;
 }
-
+.overflow-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+thead>tr>th{
+  font-family: "Spicy Rice", serif;
+  font-weight: 400;
+}
+input::placeholder{
+  font-family: "Spicy Rice", serif;
+  letter-spacing: 5px;
+  word-spacing: 8px;
+}
+.allgenres{
+  font-family: "Spicy Rice", serif;
+}
+.Home,.Watchlist{
+  font-family: "Spicy Rice", serif;
+  letter-spacing: 2px;
+  color: black;
+}
+.trendingmovies{
+  font-family: "Spicy Rice", serif;
+  letter-spacing: 2px;
+  color: black;
+  margin-top: 20px;
+}
+.pagination{
+  font-family: "Spicy Rice", serif;
+  letter-spacing: 2px;
+  color: black;
+  font-size: larger;
+}
 @media (max-width: 1000px) {
-  .carousel{
+  
+  input::placeholder{
+    font-family: "Spicy Rice", serif;
+    letter-spacing: 5px;
+    word-spacing: 8px;
+  }
+  thead>tr>th{
+    font-family: "Spicy Rice", serif;
+    font-weight: 400;
+  }
+  .carousel {
     width: 100%;
     z-index: 0;
     opacity: 90%;
@@ -74,12 +118,10 @@
     background-size: cover;
     border-radius: 10px;
   }
-  
 
   .banner {
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgb(0, 0, 0);
     border-radius: 5px;
     height: 250px;
   }
@@ -93,11 +135,25 @@
     background-size: contain;
     -webkit-background-clip: text;
     background-clip: text;
-    color:transparent;
+    color: transparent;
     background-image: url("https://th.bing.com/th/id/R.2d463f54bf6c4896262523ccf5cc37aa?rik=D93XUaqP1aWPcg&riu=http%3a%2f%2fhdqwalls.com%2fdownload%2f1%2fstar-wars-poster-4k-af.jpg&ehk=B9%2bYUiycUOPfxKNEplH6vJ%2bY6QWIUK6qTAuGRWWWttA%3d&risl=1&pid=ImgRaw&r=0");
-    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgb(255, 255, 255);
-    
+
     z-index: 1;
+  }
+  .overflow-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .deletebtn{
+    display: none;
+  }
+  
+  .deletebtn1::after {
+    content: "X";
+    margin:2px;
+    color: red;
+    font-weight: 500;
   }
 }

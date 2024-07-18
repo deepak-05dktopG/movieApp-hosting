@@ -5,37 +5,51 @@ import Watchlist from "./components/Watchlist";
 import Pagination from "./components/pagination";
 import "./App.css";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { BrowserRouter, json, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function App() {
-  let [watchlist,setwatchlist]=useState([])
+  let [watchlist, setwatchlist] = useState([]);
 
-  let handlewatchlist=(movieobj)=>{
-    let newwatchlist=[...watchlist,movieobj]
-    setwatchlist(newwatchlist)
-    console.log(newwatchlist)
-  }
+  let handlewatchlist = (movieobj) => {
+    let newwatchlist = [...watchlist, movieobj];
+    localStorage.setItem("moviesapp", JSON.stringify(newwatchlist));
+    setwatchlist(newwatchlist);
+    console.log(newwatchlist);
+  };
 
-  let handleremove=(movieobj)=>{
-    let filteredwatchlist=watchlist.filter((movie)=>{
-      return movie.id!==movieobj.id
-  })
-  setwatchlist(filteredwatchlist)
-  }
+  let handleremove = (movieobj) => {
+    let filteredwatchlist = watchlist.filter((movie) => {
+      return movie.id !== movieobj.id;
+    });
+    setwatchlist(filteredwatchlist);
+    localStorage.setItem("moviesapp", JSON.stringify(filteredwatchlist));
+  };
+
+  useEffect(() => {
+    let moviesfromlocalstorage = localStorage.getItem("moviesapp");
+    if (!moviesfromlocalstorage) {
+      return;
+    }
+    setwatchlist(JSON.parse(moviesfromlocalstorage));
+  }, []);
 
   return (
     <>
-      <div className="mt-5 pt-2">
+      <div className="body mt-5 pt-2">
         <BrowserRouter>
-          <Navbar/>
+          <Navbar />
           <Routes>
             <Route
               path="/"
               element={
                 <>
                   <Banner />
-                  <Home watchlist={watchlist} handlewatchlist={handlewatchlist} handleremove={handleremove} />
+                  <Home
+                    watchlist={watchlist}
+                    handlewatchlist={handlewatchlist}
+                    handleremove={handleremove}
+                  />
                 </>
               }
             />
@@ -43,7 +57,11 @@ function App() {
               path="/watchlist"
               element={
                 <>
-                  <Watchlist />
+                  <Watchlist
+                    watchlist={watchlist}
+                    setwatchlist={setwatchlist}
+                    handleremove={handleremove}
+                  />
                 </>
               }
             />

@@ -33,18 +33,21 @@ function Moviecard({
               onClick={() => handleremove(movieobj)}
               className="col-12 d-flex justify-content-end me-2 mt-1"
             >
-              <div className=" rounded">❤️</div>
+              <div data-aos="zoom-in"
+        data-aos-duration="1000" data-aos-delay='500'  className="fav">❤️</div>
             </div>
           ) : (
             <div
               onClick={() => handlewatchlist(movieobj)}
               className="col-12 d-flex justify-content-end me-2 mt-1"
             >
-              <div className=" rounded">🖤</div>
+              <div data-aos="zoom-out"
+        data-aos-duration="1000" data-aos-delay='500' className="fav">🤍</div>
             </div>
           )}
 
-          <div className="overlay">{moviename}</div>
+          <div data-aos="flip-right" data-aos-delay='500' data-aos-offset='10'
+        data-aos-duration="1000"  className="overlay">{moviename}</div>
         </div>
       </div>
     </>
