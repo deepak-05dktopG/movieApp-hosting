@@ -37,12 +37,16 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
   return (
     <>
       <div className=" w-100 ">
-        <div data-aos="fade-up"
-              data-aos-duration="1000" className="text-center overflow-hidden   mt-4  align-items-center ">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="text-center overflow-hidden   mt-4  align-items-center "
+        >
           {genrelist.map((genre) => {
             return (
-              <div data-aos="flip-left"
-              data-aos-duration="1000"
+              <div
+                data-aos=""
+                data-aos-duration="1000"
                 onClick={() => handlefilter(genre)}
                 className={
                   currgenre == genre
@@ -56,8 +60,12 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
           })}
         </div>
 
-        <div data-aos="fade-right" data-aos-delay='300'
-              data-aos-duration="1000" className=" pt-3 d-flex justify-content-center">
+        <div
+          data-aos="fade-right"
+          data-aos-delay="300"
+          data-aos-duration="1000"
+          className=" pt-3 d-flex justify-content-center"
+        >
           <input
             onChange={handlesearch}
             value={search}
@@ -73,27 +81,50 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
           <thead className="  ">
             <tr className="">
               <th className=" col-1"></th>
-              <th data-aos="zoom-in"
-              data-aos-duration="1000"
-              data-aos-delay='200' className=" col-4">Name</th>
+              <th
+                data-aos="zoom-in"
+                data-aos-duration="1000"
+                data-aos-delay="200"
+                className=" col-4"
+              >
+                Name
+              </th>
               <th className="  d-flex  justify-content-center align-items-center gap-1">
-                <div data-aos="fade-down"
-              data-aos-duration="1000"
-              data-aos-delay='400' className="text-success " onClick={sortdecreasing}>
+                <div
+                  data-aos="fade-down"
+                  data-aos-duration="1000"
+                  data-aos-delay="400"
+                  className="text-success "
+                  onClick={sortdecreasing}
+                >
                   <i class="fa-solid fa-arrow-down"></i>
                 </div>
-                <div data-aos="zoom-in"
-              data-aos-duration="1000"
-              data-aos-delay='200' className="">Rating</div>
-                <div data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-delay='400' className="text-danger " onClick={sortincreasing}>
+                <div
+                  data-aos="zoom-in"
+                  data-aos-duration="1000"
+                  data-aos-delay="200"
+                  className=""
+                >
+                  Rating
+                </div>
+                <div
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  data-aos-delay="400"
+                  className="text-danger "
+                  onClick={sortincreasing}
+                >
                   <i class="fa-solid fa-arrow-up"></i>
                 </div>
               </th>
-              <th data-aos="zoom-in"
-              data-aos-duration="1000"
-              data-aos-delay='200' className=" col-4 border-dark">Genre</th>
+              <th
+                data-aos="zoom-in"
+                data-aos-duration="1000"
+                data-aos-delay="200"
+                className=" col-4 border-dark"
+              >
+                Genre
+              </th>
             </tr>
           </thead>
 
@@ -113,11 +144,14 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
               })
               .map((movieobj) => {
                 return (
-                  <tr className="border">
-                    <td data-aos="flip-left"
-              data-aos-duration="1000"
-              data-aos-delay='200'
-              data-aos-offset='0' className="">
+                  <tr className="watchlistitems border border-top-0 border-start-0 border-end-0 border-secondary" >
+                    <td
+                      data-aos="flip-left"
+                      data-aos-duration="1000"
+                      data-aos-delay="200"
+                      data-aos-offset="0"
+                      className=""
+                    >
                       <img
                         className="py-1"
                         style={{ width: "80px", height: "90px" }}
@@ -125,30 +159,42 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
                         alt=""
                       />
                     </td>
-                    <td data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-delay='200'
-              data-aos-offset='0' className="moviename  ">{movieobj.original_title}</td>
-                    <td data-aos="zoom-out"
-              data-aos-duration="1000"
-              data-aos-delay='800'
-              data-aos-offset='0' className="movierating fw-bold   text-warning">
+                    <td
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                      data-aos-delay="200"
+                      data-aos-offset="0"
+                      className="moviename  "
+                    >
+                      {movieobj.original_title}
+                    </td>
+                    <td
+                      data-aos="zoom-out"
+                      data-aos-duration="1000"
+                      data-aos-delay="800"
+                      data-aos-offset="0"
+                      className="movierating  fw-bold   text-warning"
+                    >
                       {movieobj.vote_average}
                     </td>
-                    <td data-aos="fade-down"
-              data-aos-duration="1000"
-              data-aos-delay='800'
-              data-aos-offset='0' className="moviegenre    text-dark">
+                    <td
+                      data-aos="fade-down"
+                      data-aos-duration="1000"
+                      data-aos-delay="800"
+                      data-aos-offset="0"
+                      className="moviegenre"
+                    >
                       {genreids[movieobj.genre_ids[0]]}
                     </td>
-                    <td data-aos="zoom-in"
-              data-aos-duration="1000"
-              data-aos-delay='1200'
-              data-aos-offset='0'
+                    <td
+                      data-aos="zoom-in"
+                      data-aos-duration="1000"
+                      data-aos-delay="1200"
+                      data-aos-offset="0"
                       onClick={() => handleremove(movieobj)}
                       className="deletebtn1  "
                     >
-                      <div  className="deletebtn fw-bold  rounded text-danger">
+                      <div className="deletebtn fw-bold  rounded text-danger">
                         Remove
                       </div>{" "}
                     </td>

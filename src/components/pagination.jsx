@@ -2,7 +2,8 @@ import React from "react";
 
 function Pagination({previouspage,nextpage,pageno}) {
   return (
-    <div className="bg-secondary pagination d-flex justify-content-center gap-5">
+    <div className="pt-3">
+    <div className=" pagination d-flex justify-content-center gap-5">
       <div data-aos="flip-left"
               data-aos-duration="1000"
               data-aos-delay='800'
@@ -19,6 +20,7 @@ function Pagination({previouspage,nextpage,pageno}) {
               data-aos-offset='0' onClick={nextpage}>
         <i className="fa-solid fa-forward"></i>
       </div>
+    </div>
     </div>
   );
 }

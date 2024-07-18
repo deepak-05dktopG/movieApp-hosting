@@ -44,12 +44,14 @@ function App() {
               path="/"
               element={
                 <>
+                <div className=" homepage">
                   <Banner />
                   <Home
                     watchlist={watchlist}
                     handlewatchlist={handlewatchlist}
                     handleremove={handleremove}
                   />
+                  </div>
                 </>
               }
             />
@@ -57,11 +59,13 @@ function App() {
               path="/watchlist"
               element={
                 <>
+                
                   <Watchlist
                     watchlist={watchlist}
                     setwatchlist={setwatchlist}
                     handleremove={handleremove}
                   />
+    
                 </>
               }
             />

@@ -32,12 +32,12 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
 
   return (
     <>
-      <div className="homepage">
+      <div className="">
         <div>
           <div
             data-aos="fade-down"
             data-aos-duration="1000"
-            className="trendingmovies h3  text-center "
+            className="trendingmovies h3  text-center text-white "
           >
             Trending Movies
           </div>
