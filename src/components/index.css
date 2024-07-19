@@ -1,7 +1,11 @@
-.Navbar{
-  background: rgb(16,16,16);
-background: linear-gradient(202deg, rgba(16,16,16,1) 25%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
-
+.Navbar {
+  background: rgb(16, 16, 16);
+  background: linear-gradient(
+    202deg,
+    rgba(16, 16, 16, 1) 25%,
+    rgba(9, 9, 121, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 .carousel {
   width: 100%;
@@ -67,67 +71,93 @@ background: linear-gradient(202deg, rgba(16,16,16,1) 25%, rgba(9,9,121,1) 100%, 
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-thead>tr>th{
+thead > tr > th {
   font-family: "Spicy Rice", serif;
   font-weight: 400;
 }
-input::placeholder{
+input::placeholder {
   font-family: "Spicy Rice", serif;
   letter-spacing: 5px;
   word-spacing: 8px;
 }
-.allgenres{
+.allgenres {
   font-family: "Spicy Rice", serif;
 }
-.Home,.Watchlist{
+.Home,
+.Watchlist {
   font-family: "Spicy Rice", serif;
   letter-spacing: 2px;
   color: black;
 }
-.trendingmovies{
+.trendingmovies {
   font-family: "Spicy Rice", serif;
   letter-spacing: 2px;
   color: black;
   margin-top: 20px;
 }
-.pagination{
+.pagination {
   font-family: "Spicy Rice", serif;
   letter-spacing: 2px;
   color: white;
   font-size: larger;
-  background: rgb(16,16,16);
-  background: linear-gradient(202deg, rgba(16,16,16,1) 25%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
+  background: rgb(16, 16, 16);
+  background: linear-gradient(
+    202deg,
+    rgba(16, 16, 16, 1) 25%,
+    rgba(9, 9, 121, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
-.watchlistitems{
+.watchlistitems {
   color: white;
-  background: rgb(49,0,112);
-  background: linear-gradient(90deg, rgba(49,0,112,1) 0%, rgba(120,56,170,1) 62%, rgba(132,54,158,1) 100%, rgba(253,29,29,1) 100%, rgba(252,176,69,1) 100%);}
-.homepage{
-  background: rgb(16,16,16);
-background: linear-gradient(202deg, rgba(16,16,16,1) 25%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
-
+  background: rgb(49, 0, 112);
+  background: linear-gradient(
+    90deg,
+    rgba(49, 0, 112, 1) 0%,
+    rgba(120, 56, 170, 1) 62%,
+    rgba(132, 54, 158, 1) 100%,
+    rgba(253, 29, 29, 1) 100%,
+    rgba(252, 176, 69, 1) 100%
+  );
 }
-  @media (max-width: 1000px) {
-    .pagination{
-      font-family: "Spicy Rice", serif;
-      letter-spacing: 2px;
-      color: white;
-      font-size: larger;
-      background: rgb(16,16,16);
-      background: linear-gradient(202deg, rgba(16,16,16,1) 25%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
-      
-    }
-    .homepage{
-      background: rgb(16,16,16);
-    background: linear-gradient(202deg, rgba(16,16,16,1) 25%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
-    
-    }
-  input::placeholder{
+.homepage {
+  background: rgb(16, 16, 16);
+  background: linear-gradient(
+    202deg,
+    rgba(16, 16, 16, 1) 25%,
+    rgba(9, 9, 121, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+@media (max-width: 1000px) {
+  .pagination {
+    font-family: "Spicy Rice", serif;
+    letter-spacing: 2px;
+    color: white;
+    font-size: larger;
+    background: rgb(16, 16, 16);
+    background: linear-gradient(
+      202deg,
+      rgba(16, 16, 16, 1) 25%,
+      rgba(9, 9, 121, 1) 100%,
+      rgba(0, 212, 255, 1) 100%
+    );
+  }
+  .homepage {
+    background: rgb(16, 16, 16);
+    background: linear-gradient(
+      202deg,
+      rgba(16, 16, 16, 1) 25%,
+      rgba(9, 9, 121, 1) 100%,
+      rgba(0, 212, 255, 1) 100%
+    );
+  }
+  input::placeholder {
     font-family: "Spicy Rice", serif;
     letter-spacing: 5px;
     word-spacing: 8px;
   }
-  thead>tr>th{
+  thead > tr > th {
     font-family: "Spicy Rice", serif;
     font-weight: 400;
   }
@@ -170,13 +200,13 @@ background: linear-gradient(202deg, rgba(16,16,16,1) 25%, rgba(9,9,121,1) 100%, 
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .deletebtn{
+  .deletebtn {
     display: none;
   }
-  
+
   .deletebtn1::after {
     content: "X";
-    margin:2px;
+    margin: 2px;
     color: red;
     font-weight: 500;
   }

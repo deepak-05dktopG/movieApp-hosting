@@ -22,7 +22,7 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=678e5a3ced1fa4aaba1033727890b5fe&language=en-US&page=${pageno}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=678e5a3ced1fa4aaba1033727890b5fe&page=${pageno}`
       )
       .then(function (res) {
         setMovies(res.data.results);

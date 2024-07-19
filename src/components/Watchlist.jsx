@@ -45,8 +45,7 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
           {genrelist.map((genre) => {
             return (
               <div
-                data-aos=""
-                data-aos-duration="1000"
+               
                 onClick={() => handlefilter(genre)}
                 className={
                   currgenre == genre

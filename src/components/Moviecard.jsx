@@ -25,7 +25,7 @@ function Moviecard({
         <div
           className="img d-flex flex-column align-items-center justify-content-between"
           style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/original/${poster_path1})`,
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500${poster_path1})`,
           }}
         >
           {doescontain(movieobj) ? (
