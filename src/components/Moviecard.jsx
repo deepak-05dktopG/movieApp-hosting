@@ -25,7 +25,7 @@ function Moviecard({
         <div
           className="img d-flex flex-column align-items-center justify-content-between"
           style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/w500${poster_path1})`,
+            backgroundImage: `url(${poster_path1})`,
           }}
         >
           {doescontain(movieobj) ? (
@@ -38,7 +38,7 @@ function Moviecard({
             </div>
           ) : (
             <div
-              onClick={() => handlewatchlist(movieobj)}
+              onClick={() =>  (movieobj)}
               className="col-12 d-flex justify-content-end me-2 mt-1"
             >
               <div data-aos="zoom-out"

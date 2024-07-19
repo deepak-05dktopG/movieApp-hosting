@@ -22,11 +22,11 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=678e5a3ced1fa4aaba1033727890b5fe&page=${pageno}`
+        `https://api.tvmaze.com/shows?page=${pageno}`
       )
       .then(function (res) {
-        setMovies(res.data.results);
-        console.log(res.data.results);
+        setMovies(res.data);
+        console.log(res.data);
       });
   }, [pageno]);
 
@@ -52,8 +52,8 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
               data-aos-duration="1000">
               <Moviecard
                 key={moviesobj.id}
-                poster_path1={moviesobj.poster_path}
-                moviename={moviesobj.original_title}
+                poster_path1={moviesobj.image.medium}
+                moviename={moviesobj.name}
                 handlewatchlist={handlewatchlist}
                 movieobj={moviesobj}
                 handleremove={handleremove}
