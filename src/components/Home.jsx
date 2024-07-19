@@ -22,11 +22,11 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
   useEffect(() => {
     axios
       .get(
-        `https://api.tvmaze.com/shows?page=${pageno}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=678e5a3ced1fa4aaba1033727890b5fe&page=${pageno}`
       )
       .then(function (res) {
-        setMovies(res.data);
-        console.log(res.data);
+        setMovies(res.data.results);
+        console.log(res.data.results);
       });
   }, [pageno]);
 
@@ -42,23 +42,19 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
             Trending Movies
           </div>
         </div>
-        <div
-         
-          className="d-flex flex-wrap gap-2 justify-content-around"
-        >
+        <div className="d-flex flex-wrap gap-2 justify-content-around">
           {movies.map((moviesobj) => {
             return (
-              <div data-aos="flip-right"
-              data-aos-duration="1000">
-              <Moviecard
-                key={moviesobj.id}
-                poster_path1={moviesobj.image.medium}
-                moviename={moviesobj.name}
-                handlewatchlist={handlewatchlist}
-                movieobj={moviesobj}
-                handleremove={handleremove}
-                watchlist={watchlist}
-              />
+              <div data-aos="flip-right" data-aos-duration="1000">
+                <Moviecard
+                  key={moviesobj.id}
+                  poster_path1={moviesobj.poster_path}
+                  moviename={moviesobj.original_title}
+                  handlewatchlist={handlewatchlist}
+                  movieobj={moviesobj}
+                  handleremove={handleremove}
+                  watchlist={watchlist}
+                />
               </div>
             );
           })}

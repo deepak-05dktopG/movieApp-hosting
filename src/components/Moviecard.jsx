@@ -25,7 +25,7 @@ function Moviecard({
         <div
           className="img d-flex flex-column align-items-center justify-content-between"
           style={{
-            backgroundImage: `url(${poster_path1})`,
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500${poster_path1})`,
           }}
         >
           {doescontain(movieobj) ? (
@@ -33,21 +33,40 @@ function Moviecard({
               onClick={() => handleremove(movieobj)}
               className="col-12 d-flex justify-content-end me-2 mt-1"
             >
-              <div data-aos="zoom-in"
-        data-aos-duration="1000" data-aos-delay='500'  className="fav">❤️</div>
+              <div
+                data-aos="zoom-in"
+                data-aos-duration="1000"
+                data-aos-delay="500"
+                className="fav"
+              >
+                ❤️
+              </div>
             </div>
           ) : (
             <div
-              onClick={() =>  (movieobj)}
+              onClick={() => handlewatchlist(movieobj)}
               className="col-12 d-flex justify-content-end me-2 mt-1"
             >
-              <div data-aos="zoom-out"
-        data-aos-duration="1000" data-aos-delay='500' className="fav">🤍</div>
+              <div
+                data-aos="zoom-out"
+                data-aos-duration="1000"
+                data-aos-delay="500"
+                className="fav"
+              >
+                🤍
+              </div>
             </div>
           )}
 
-          <div data-aos="flip-right" data-aos-delay='500' data-aos-offset='10'
-        data-aos-duration="1000"  className="overlay">{moviename}</div>
+          <div
+            data-aos="flip-right"
+            data-aos-delay="500"
+            data-aos-offset="10"
+            data-aos-duration="1000"
+            className="overlay"
+          >
+            {moviename}
+          </div>
         </div>
       </div>
     </>

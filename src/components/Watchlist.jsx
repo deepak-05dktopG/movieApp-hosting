@@ -45,7 +45,6 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
           {genrelist.map((genre) => {
             return (
               <div
-               
                 onClick={() => handlefilter(genre)}
                 className={
                   currgenre == genre
@@ -143,7 +142,7 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
               })
               .map((movieobj) => {
                 return (
-                  <tr className="watchlistitems border border-top-0 border-start-0 border-end-0 border-secondary" >
+                  <tr className="watchlistitems border border-top-0 border-start-0 border-end-0 border-secondary">
                     <td
                       data-aos="flip-left"
                       data-aos-duration="1000"
