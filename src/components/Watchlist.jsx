@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import genreids from "./genre";
 function Watchlist({ watchlist, setwatchlist, handleremove }) {
   const [search, setsearch] = useState("");
   const [genrelist, setgenrelist] = useState(["All Genres"]);
   const [currgenre, setcurrgenre] = useState("All Genres");
-
   let handlesearch = (e) => {
     setsearch(e.target.value);
   };
@@ -14,20 +12,21 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
 
   let sortincreasing = () => {
     let accending = watchlist.sort((movieA, movieB) => {
-      return movieA.vote_average - movieB.vote_average;
+      return movieA.rating.average - movieB.rating.average;
+
     });
     setwatchlist([...accending]);
   };
   let sortdecreasing = () => {
     let decending = watchlist.sort((movieA, movieB) => {
-      return movieB.vote_average - movieA.vote_average;
+      return movieB.rating.average - movieA.rating.average;
     });
     setwatchlist([...decending]);
   };
 
   useEffect(() => {
     let temp = watchlist.map((movieobj) => {
-      return genreids[movieobj.genre_ids[0]];
+      return [movieobj.genres];
     });
     temp = new Set(temp);
     setgenrelist(["All Genres", ...temp]);
@@ -132,13 +131,11 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
                 if (currgenre == "All Genres") {
                   return true;
                 } else {
-                  return genreids[movieobj.genre_ids[0]] == currgenre;
+                  return [movieobj.genres] == currgenre;
                 }
               })
               .filter((movieobj) => {
-                return movieobj.original_title
-                  .toLowerCase()
-                  .includes(search.toLocaleLowerCase());
+                return movieobj.name
               })
               .map((movieobj) => {
                 return (
@@ -153,7 +150,7 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
                       <img
                         className="py-1"
                         style={{ width: "80px", height: "90px" }}
-                        src={`https://image.tmdb.org/t/p/original/${movieobj.poster_path}`}
+                        src={`${movieobj.image.medium}`}
                         alt=""
                       />
                     </td>
@@ -164,7 +161,7 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
                       data-aos-offset="0"
                       className="moviename  "
                     >
-                      {movieobj.original_title}
+                      {movieobj.name}
                     </td>
                     <td
                       data-aos="zoom-out"
@@ -173,7 +170,7 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
                       data-aos-offset="0"
                       className="movierating  fw-bold   text-warning"
                     >
-                      {movieobj.vote_average}
+                      {movieobj.rating.average}
                     </td>
                     <td
                       data-aos="fade-down"
@@ -182,7 +179,7 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
                       data-aos-offset="0"
                       className="moviegenre"
                     >
-                      {genreids[movieobj.genre_ids[0]]}
+                      {[movieobj.genres[0]]}
                     </td>
                     <td
                       data-aos="zoom-in"

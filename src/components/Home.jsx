@@ -8,6 +8,7 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
   const [movies, setMovies] = useState([]);
   const [pageno, pagenumber] = useState(1);
 
+
   const previouspage = () => {
     if (pageno == 1) {
       pageno(1);
@@ -20,14 +21,17 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
   };
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=678e5a3ced1fa4aaba1033727890b5fe&page=${pageno}`
-      )
-      .then(function (res) {
-        setMovies(res.data.results);
-        console.log(res.data.results);
-      });
+    const fetchMovies = async () => {
+      try {
+        const response = await axios.get(`https://api.tvmaze.com/shows?page=${pageno}`);
+        const data = response.data.slice(0, 20);
+        setMovies(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchMovies();
   }, [pageno]);
 
   return (
@@ -48,8 +52,8 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
               <div data-aos="flip-right" data-aos-duration="1000">
                 <Moviecard
                   key={moviesobj.id}
-                  poster_path1={moviesobj.poster_path}
-                  moviename={moviesobj.original_title}
+                  poster_path1={moviesobj.image.medium}
+                  moviename={moviesobj.name}
                   handlewatchlist={handlewatchlist}
                   movieobj={moviesobj}
                   handleremove={handleremove}

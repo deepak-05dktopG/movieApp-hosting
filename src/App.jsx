@@ -60,11 +60,11 @@ function App() {
               element={
                 <>
                 
-                  <Watchlist
+               <Watchlist
                     watchlist={watchlist}
                     setwatchlist={setwatchlist}
                     handleremove={handleremove}
-                  />
+                  /> 
     
                 </>
               }
