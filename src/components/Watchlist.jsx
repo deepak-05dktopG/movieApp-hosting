@@ -1,61 +1,31 @@
 import React, { useEffect, useState } from "react";
 function Watchlist({ watchlist, setwatchlist, handleremove }) {
   const [search, setsearch] = useState("");
-  const [genrelist, setgenrelist] = useState(["All Genres"]);
   const [currgenre, setcurrgenre] = useState("All Genres");
-  let handlesearch = (e) => {
-    setsearch(e.target.value);
-  };
-  let handlefilter = (genre) => {
-    setcurrgenre(genre);
-  };
+
 
   let sortincreasing = () => {
     let accending = watchlist.sort((movieA, movieB) => {
+      if (!movieA.rating || !movieB.rating) return 0; // Add this check
       return movieA.rating.average - movieB.rating.average;
-
     });
     setwatchlist([...accending]);
   };
+
   let sortdecreasing = () => {
     let decending = watchlist.sort((movieA, movieB) => {
+      if (!movieA.rating || !movieB.rating) return 0; // Add this check
       return movieB.rating.average - movieA.rating.average;
     });
     setwatchlist([...decending]);
   };
 
-  useEffect(() => {
-    let temp = watchlist.map((movieobj) => {
-      return [movieobj.genres];
-    });
-    temp = new Set(temp);
-    setgenrelist(["All Genres", ...temp]);
-    console.log(temp);
-  }, [watchlist]);
+
 
   return (
     <>
       <div className=" w-100 ">
-        <div
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          className="text-center overflow-hidden   mt-4  align-items-center "
-        >
-          {genrelist.map((genre) => {
-            return (
-              <div
-                onClick={() => handlefilter(genre)}
-                className={
-                  currgenre == genre
-                    ? "allgenres btn btn-success text-white"
-                    : " btn   btn-warning "
-                }
-              >
-                {genre}
-              </div>
-            );
-          })}
-        </div>
+    
 
         <div
           data-aos="fade-right"
@@ -64,10 +34,10 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
           className=" pt-3 d-flex justify-content-center"
         >
           <input
-            onChange={handlesearch}
+            onChange={(e) => setsearch(e.target.value)}
             value={search}
             type="text"
-            placeholder="Search Movies"
+            placeholder="Search by name"
             style={{ width: "60%" }}
             className="form-control form-control-md  rounded border border-secondary"
           />
@@ -135,7 +105,8 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
                 }
               })
               .filter((movieobj) => {
-                return movieobj.name
+                return movieobj.name && movieobj.name.toLowerCase().includes(search.toLowerCase());
+
               })
               .map((movieobj) => {
                 return (
@@ -154,6 +125,7 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
                         alt=""
                       />
                     </td>
+                    
                     <td
                       data-aos="fade-up"
                       data-aos-duration="1000"
@@ -161,6 +133,7 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
                       data-aos-offset="0"
                       className="moviename  "
                     >
+                      
                       {movieobj.name}
                     </td>
                     <td
