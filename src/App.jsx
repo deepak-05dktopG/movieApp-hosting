@@ -4,6 +4,7 @@ import Banner from "./components/Banner";
 import Watchlist from "./components/Watchlist";
 import Pagination from "./components/pagination";
 import "./App.css";
+import Moviedetails from "./components/Moviedetails";
 
 import { BrowserRouter, json, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -44,13 +45,13 @@ function App() {
               path="/"
               element={
                 <>
-                <div className=" homepage">
-                  <Banner />
-                  <Home
-                    watchlist={watchlist}
-                    handlewatchlist={handlewatchlist}
-                    handleremove={handleremove}
-                  />
+                  <div className=" homepage">
+                    <Banner />
+                    <Home
+                      watchlist={watchlist}
+                      handlewatchlist={handlewatchlist}
+                      handleremove={handleremove}
+                    />
                   </div>
                 </>
               }
@@ -59,16 +60,17 @@ function App() {
               path="/watchlist"
               element={
                 <>
-                
-               <Watchlist
+
+                  <Watchlist
                     watchlist={watchlist}
                     setwatchlist={setwatchlist}
                     handleremove={handleremove}
-                  /> 
-    
+                  />
+
                 </>
               }
             />
+            <Route path="/movie/:id" element={<Moviedetails />} />
           </Routes>
         </BrowserRouter>
       </div>

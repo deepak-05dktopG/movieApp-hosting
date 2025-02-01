@@ -1,6 +1,9 @@
 import React from "react";
 import "./index.css";
 import Watchlist from "./Watchlist";
+import { Link } from "react-router-dom";
+import Moviedetails from "./Moviedetails";
+import App from "../App";
 
 function Moviecard({
   poster_path1,
@@ -19,58 +22,80 @@ function Moviecard({
     return false;
   }
 
+
+  const handleclick = () => {
+    <></>
+  }
+
   return (
     <>
-      <div className="movies">
-        <div
-          className="img d-flex flex-column align-items-center justify-content-between"
-          style={{
-            backgroundImage: `url(${poster_path1})`,
-          }}
-        >
-          {doescontain(movieobj) ? (
-            <div
-              onClick={() => handleremove(movieobj)}
-              className="col-12 d-flex justify-content-end me-2 mt-1"
-            >
-              <div
-                data-aos="zoom-in"
-                data-aos-duration="1000"
-                data-aos-delay="500"
-                className="fav"
-              >
-                ❤️
-              </div>
-            </div>
-          ) : (
-            <div
-              onClick={() => handlewatchlist(movieobj)}
-              className="col-12 d-flex justify-content-end me-2 mt-1"
-            >
-              <div
-                data-aos="zoom-out"
-                data-aos-duration="1000"
-                data-aos-delay="500"
-                className="fav"
-              >
-                🤍
-              </div>
-            </div>
-          )}
+      <Link
+        data-aos="fade-in"
+        data-aos-duration="1000"
+        data-aos-delay='500'
+        className="Watchlist text-white text-decoration-none "
+        to={`/movie/${movieobj.id}`}
+      >
 
+        <div className="movies">
           <div
-            data-aos="flip-right"
-            data-aos-delay="500"
-            data-aos-offset="10"
-            data-aos-duration="1000"
-            className="overlay"
+            onClick={handleclick}
+            className="img d-flex flex-column align-items-center justify-content-between"
+            style={{
+              backgroundImage: `url(${poster_path1})`,
+            }}
           >
-            {moviename}
+            {doescontain(movieobj) ? (
+              <div
+                onClick={() => handleremove(movieobj)}
+                className="col-12 d-flex justify-content-end me-2 mt-1"
+              >
+                <div
+                  data-aos="zoom-in"
+                  data-aos-duration="1000"
+                  data-aos-delay="500"
+                  className="fav"
+                >
+                  ❤️
+                </div>
+              </div>
+            ) : (
+              <div
+                onClick={() => handlewatchlist(movieobj)}
+                className="col-12 d-flex justify-content-end me-2 mt-1"
+              >
+                <div
+                  data-aos="zoom-out"
+                  data-aos-duration="1000"
+                  data-aos-delay="500"
+                  className="fav"
+                >
+                  🤍
+                </div>
+              </div>
+            )}
+
+            <div
+              data-aos="flip-right"
+              data-aos-delay="500"
+              data-aos-offset="10"
+              data-aos-duration="1000"
+              className="overlay"
+            >
+              {moviename}
+            </div>
           </div>
         </div>
-      </div>
+
+      </Link>
+
+
     </>
   );
 }
 
 export default Moviecard;
+
+
+
+

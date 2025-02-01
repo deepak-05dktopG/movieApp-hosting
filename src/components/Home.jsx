@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import Moviecard from "./Moviecard";
 import Pagination from "./pagination";
+import Moviedetails from "./Moviedetails";
 
 function Home({ handlewatchlist, handleremove, watchlist }) {
   const [movies, setMovies] = useState([]);
@@ -59,7 +60,12 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
                   handleremove={handleremove}
                   watchlist={watchlist}
                 />
+
+               
+
               </div>
+
+
             );
           })}
         </div>
