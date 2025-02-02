@@ -63,7 +63,7 @@ function Moviecard({
                     data-aos-duration="1000"
                     data-aos-delay="500"
                     className="fav"
-                    onClick={()=>{alert(`${moviename} removed from WatchList, Kindly see more about the movie.`)}}
+                    onClick={()=>{alert(`${moviename} removed from WatchList, Kindly see one more time about the movie.`)}}
                   >
                     ❤️
                   </div>
