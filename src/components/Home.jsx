@@ -48,7 +48,6 @@ function Home({ handlewatchlist, handleremove, watchlist }) {
             className="trendingmovies h3  text-center text-white "
           >
             Trending Movies <br />
-            <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search Movie " className="border rounded" />
           </div>
         </div>
         <LazyLoadComponent>
