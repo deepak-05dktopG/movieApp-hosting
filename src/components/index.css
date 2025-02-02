@@ -1,4 +1,4 @@
-.Navbar,.showdetails {
+.Navbar,.showdetails,.Loading {
   background: rgb(16, 16, 16);
   background: linear-gradient(
     202deg,
@@ -6,6 +6,9 @@
     rgba(9, 9, 121, 1) 100%,
     rgba(0, 212, 255, 1) 100%
   );
+}
+.showdetails{
+  min-height: 100vh;
 }
 .carousel {
   width: 100%;
@@ -130,6 +133,10 @@ input::placeholder {
   );
 }
 @media (max-width: 1000px) {
+  .showdetails{
+    display: flex;
+    flex-direction: column;
+  }
   .pagination {
     font-family: "Spicy Rice", serif;
     letter-spacing: 2px;

@@ -30,17 +30,19 @@ function Moviedetails({
 
         fetchShowDetails();
     }, [id]);
-    if (!showDetails) return <p>Loading...</p>; // Loading state
+
+
+    if (!showDetails) return <p className='Loading text-center align-content-center text-white' style={{height:"100vh"}}> <h1> Loading...</h1></p>; // Loading state
 
     return (
         <>
-            <div className='showdetails d-none d-flex flex-wrap row justify-content-evenly' style={{ height: "", overflow: "hidden" }}>
+            {/* <div className='showdetails d-flex flex-wrap row justify-content-evenly' style={{ height: "", overflow: "hidden" }}>
                 <div className='col-5'>
                     <img width={550} src={showDetails.image.original} alt="" />
                 </div>
                 <div className='  col-7 text-white p-2 d-flex flex-column '>
                     <div className='d-flex flex-column'>
-                        <h1 className='text-success fw-bold'>{showDetails.name}</h1>
+                        <h2 className='text-danger fw-bold'>Title: <span className='h1 text-success'>{showDetails.name}</span></h2>
                         <h2 className='text-danger'>Language:  <span className='text-warning'> {showDetails.language} </span></h2>
                         <h2 className='text-danger'>Genres: <span className='text-warning'> {showDetails.genres.join(', ')} </span></h2>
                         <h2 className='text-danger'>Rating: <span className='text-warning'> {showDetails.rating?.average || 'N/A'} </span></h2>
@@ -48,17 +50,20 @@ function Moviedetails({
                     </div>
                     <div className='fs-5' dangerouslySetInnerHTML={{ __html: showDetails.summary }} />
                 </div>
-            </div>
+            </div> */}
 
 
 
-            <div className='showdetails d-flex flex-wrap justify-content-evenly' style={{ height: "", overflow: "hidden" }}>
+            <div className='showdetails d-flex align-items-center justify-content-evenly' style={{ height: "", overflow: "hidden" }}>
+                
                 <div className='mt-2 '>
                     <img width={400} className='rounded-4 border border-2 border-success' src={showDetails.image.original} alt="" />
                 </div>
+                
+
                 <div className='text-white p-2 d-flex flex-column '>
                     <div className='p-3 d-flex flex-column'>
-                        <h1 className='text-success fw-bold'>{showDetails.name}</h1>
+                        <h1 className='text-success fw-bold'> <span className='text-danger h2'>Title:</span> {showDetails.name}</h1>
                         <h2 className='text-danger'>Language:  <span className='text-warning'> {showDetails.language} </span></h2>
                         <h2 className='text-danger'>Genres: <span className='text-warning'> {showDetails.genres.join(', ')} </span></h2>
                         <h2 className='text-danger'>Rating: <span className='text-warning'> {showDetails.rating?.average || 'N/A'} </span></h2>

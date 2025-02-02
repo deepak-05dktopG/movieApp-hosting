@@ -106,7 +106,6 @@ function Watchlist({ watchlist, setwatchlist, handleremove }) {
               })
               .filter((movieobj) => {
                 return movieobj.name && movieobj.name.toLowerCase().includes(search.toLowerCase());
-
               })
               .map((movieobj) => {
                 return (

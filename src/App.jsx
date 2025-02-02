@@ -23,6 +23,7 @@ function App() {
     let filteredwatchlist = watchlist.filter((movie) => {
       return movie.id !== movieobj.id;
     });
+    // alert("Movie Added to Favatoute")
     setwatchlist(filteredwatchlist);
     localStorage.setItem("moviesapp", JSON.stringify(filteredwatchlist));
   };
