@@ -32,7 +32,12 @@ function Moviedetails({
     }, [id]);
 
 
-    if (!showDetails) return <p className='Loading text-center align-content-center text-white' style={{height:"100vh"}}> <h1> Loading...</h1></p>; // Loading state
+    if (!showDetails) return <p className='Loading text-center align-content-center text-white' style={{ height: "100vh" }}> <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
+        <circle class="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 660" stroke-dashoffset="-330" stroke-linecap="round"></circle>
+        <circle class="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 220" stroke-dashoffset="-110" stroke-linecap="round"></circle>
+        <circle class="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+        <circle class="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+    </svg></p>; // Loading state
 
     return (
         <>
@@ -55,11 +60,11 @@ function Moviedetails({
 
 
             <div className='showdetails d-flex align-items-center justify-content-evenly' style={{ height: "", overflow: "hidden" }}>
-                
+
                 <div className='mt-2 '>
                     <img width={400} className='rounded-4 border border-2 border-success' src={showDetails.image.original} alt="" />
                 </div>
-                
+
 
                 <div className='text-white p-2 d-flex flex-column '>
                     <div className='p-3 d-flex flex-column'>
@@ -69,7 +74,7 @@ function Moviedetails({
                         <h2 className='text-danger'>Rating: <span className='text-warning'> {showDetails.rating?.average || 'N/A'} </span></h2>
                         <h2 className='text-danger'>Realese Date: <span className='text-warning'> {showDetails.premiered} </span></h2>
                     </div>
-                    <div className='fs-5 p-2' style={{textAlign:"justify"}} dangerouslySetInnerHTML={{ __html: showDetails.summary }} />
+                    <div className='fs-5 p-2' style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: showDetails.summary }} />
                 </div>
             </div>
         </>
