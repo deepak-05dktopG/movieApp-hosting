@@ -1,204 +1,55 @@
-.pl {
-    width: 6em;
-    height: 6em;
+.loader {
+  position: relative;
+  display: flex;
+  gap: 0.3em;
+  justify-content: center;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2em;
+  filter: blur(45px);
+  background-color: #e299ff;
+  background-image: radial-gradient(at 52% 57%, hsla(11,83%,72%,1) 0px, transparent 50%),
+  radial-gradient(at 37% 57%, hsla(175,78%,66%,1) 0px, transparent 50%);
+}
+
+.loader__circle {
+  --size__loader: 0.6em;
+  width: var(--size__loader);
+  height: var(--size__loader);
+  border-radius: 50%;
+  animation: loader__circle__jumping 2s infinite;
+  background-color: #b499ff;
+}
+
+.loader__circle:nth-child(2n) {
+  animation-delay: 300ms;
+  background-color: #e499ff;
+}
+
+.loader__circle:nth-child(3n) {
+  animation-delay: 600ms;
+}
+
+@keyframes loader__circle__jumping {
+  0%, 100% {
+    transform: translateY(0px);
   }
-  
-  .pl__ring {
-    animation: rngA 0.5s linear infinite;
+
+  25% {
+    transform: translateY(-15px) scale(0.5);
   }
-  
-  .pl__ring--a {
-    stroke: #f42f25;
+
+  50% {
+    transform: translateY(0px);
   }
-  
-  .pl__ring--b {
-    animation-name: ringB;
-    stroke: #f49725;
+
+  75% {
+    transform: translateY(5px) scale(0.9);
   }
-  
-  .pl__ring--c {
-    animation-name: ringC;
-    stroke: #255ff4;
-  }
-  
-  .pl__ring--d {
-    animation-name: ringD;
-    stroke: #f42582;
-  }
-  
-  /* Animations */
-  @keyframes ringA {
-    from, 4% {
-      stroke-dasharray: 0 660;
-      stroke-width: 20;
-      stroke-dashoffset: -330;
-    }
-  
-    12% {
-      stroke-dasharray: 60 600;
-      stroke-width: 30;
-      stroke-dashoffset: -335;
-    }
-  
-    32% {
-      stroke-dasharray: 60 600;
-      stroke-width: 30;
-      stroke-dashoffset: -595;
-    }
-  
-    40%, 54% {
-      stroke-dasharray: 0 660;
-      stroke-width: 20;
-      stroke-dashoffset: -660;
-    }
-  
-    62% {
-      stroke-dasharray: 60 600;
-      stroke-width: 30;
-      stroke-dashoffset: -665;
-    }
-  
-    82% {
-      stroke-dasharray: 60 600;
-      stroke-width: 30;
-      stroke-dashoffset: -925;
-    }
-  
-    90%, to {
-      stroke-dasharray: 0 660;
-      stroke-width: 20;
-      stroke-dashoffset: -990;
-    }
-  }
-  
-  @keyframes ringB {
-    from, 12% {
-      stroke-dasharray: 0 220;
-      stroke-width: 20;
-      stroke-dashoffset: -110;
-    }
-  
-    20% {
-      stroke-dasharray: 20 200;
-      stroke-width: 30;
-      stroke-dashoffset: -115;
-    }
-  
-    40% {
-      stroke-dasharray: 20 200;
-      stroke-width: 30;
-      stroke-dashoffset: -195;
-    }
-  
-    48%, 62% {
-      stroke-dasharray: 0 220;
-      stroke-width: 20;
-      stroke-dashoffset: -220;
-    }
-  
-    70% {
-      stroke-dasharray: 20 200;
-      stroke-width: 30;
-      stroke-dashoffset: -225;
-    }
-  
-    90% {
-      stroke-dasharray: 20 200;
-      stroke-width: 30;
-      stroke-dashoffset: -305;
-    }
-  
-    98%, to {
-      stroke-dasharray: 0 220;
-      stroke-width: 20;
-      stroke-dashoffset: -330;
-    }
-  }
-  
-  @keyframes ringC {
-    from {
-      stroke-dasharray: 0 440;
-      stroke-width: 20;
-      stroke-dashoffset: 0;
-    }
-  
-    8% {
-      stroke-dasharray: 40 400;
-      stroke-width: 30;
-      stroke-dashoffset: -5;
-    }
-  
-    28% {
-      stroke-dasharray: 40 400;
-      stroke-width: 30;
-      stroke-dashoffset: -175;
-    }
-  
-    36%, 58% {
-      stroke-dasharray: 0 440;
-      stroke-width: 20;
-      stroke-dashoffset: -220;
-    }
-  
-    66% {
-      stroke-dasharray: 40 400;
-      stroke-width: 30;
-      stroke-dashoffset: -225;
-    }
-  
-    86% {
-      stroke-dasharray: 40 400;
-      stroke-width: 30;
-      stroke-dashoffset: -395;
-    }
-  
-    94%, to {
-      stroke-dasharray: 0 440;
-      stroke-width: 20;
-      stroke-dashoffset: -440;
-    }
-  }
-  
-  @keyframes ringD {
-    from, 8% {
-      stroke-dasharray: 0 440;
-      stroke-width: 20;
-      stroke-dashoffset: 0;
-    }
-  
-    16% {
-      stroke-dasharray: 40 400;
-      stroke-width: 30;
-      stroke-dashoffset: -5;
-    }
-  
-    36% {
-      stroke-dasharray: 40 400;
-      stroke-width: 30;
-      stroke-dashoffset: -175;
-    }
-  
-    44%, 50% {
-      stroke-dasharray: 0 440;
-      stroke-width: 20;
-      stroke-dashoffset: -220;
-    }
-  
-    58% {
-      stroke-dasharray: 40 400;
-      stroke-width: 30;
-      stroke-dashoffset: -225;
-    }
-  
-    78% {
-      stroke-dasharray: 40 400;
-      stroke-width: 30;
-      stroke-dashoffset: -395;
-    }
-  
-    86%, to {
-      stroke-dasharray: 0 440;
-      stroke-width: 20;
-      stroke-dashoffset: -440;
-    }
-  }
+}
