@@ -33,6 +33,14 @@ function Moviecard({
   }
   if (!movieobj) return <p className='bg-dark text-center align-content-center text-white' style={{height:"100vh"}}> <h1> Loading...</h1></p>; // Loading state
 
+  const showalert=()=>{
+    return(
+      <div className="alert alert-success" role="alert">
+        <strong>Movie Added to Watchlist!</strong>
+        </div>
+        
+    )
+  }
 
   return (
     <>
@@ -63,7 +71,7 @@ function Moviecard({
                     data-aos-duration="1000"
                     data-aos-delay="500"
                     className="fav"
-                    onClick={()=>{alert(`${moviename} removed from WatchList, Kindly see one more time about the movie.`)}}
+                    onClick={()=>{alert(`"${moviename}" removed from WatchList, **Kindly see one more time about the movie.**`)}}
                   >
                     ❤️
                   </div>
@@ -78,7 +86,7 @@ function Moviecard({
                     data-aos-duration="1000"
                     data-aos-delay="500"
                     className="fav"
-                    onClick={()=>{alert(`${moviename} Added to WatchList, Let see more about the Movie`)}}
+                    onClick={()=>{alert(`"${moviename}" Added to WatchList, **Let see more about the Movie**`)}}
                   >
                     🤍
                   </div>
